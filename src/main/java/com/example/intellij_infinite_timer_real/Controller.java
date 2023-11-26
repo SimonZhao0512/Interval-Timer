@@ -392,6 +392,8 @@ public class Controller {
     public void btn_resetALL_Click(ActionEvent e) {
         reset1();
         reset2();
+        btn_start1.setText("Start");
+        btn_start2.setText("Start");
         txt_setHour1.clear();
         txt_setMin1.clear();
         txt_setSec1.clear();
