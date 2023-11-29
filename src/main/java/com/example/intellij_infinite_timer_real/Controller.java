@@ -112,7 +112,7 @@ public class Controller {
 
         } else {
             isRepeating1 = false;
-            btn_repeat1.setStyle("-fx-background-color: -fx-default-button");
+            btn_repeat1.setStyle("");
         }
     }
 
@@ -269,7 +269,7 @@ public class Controller {
 
         } else {
             isRepeating2 = false;
-            btn_repeat2.setStyle("-fx-background-color: -fx-default-button");
+            btn_repeat2.setStyle("");
         }
     }
 
@@ -428,18 +428,18 @@ public class Controller {
                             // }
 
                             // ---------------------------------------------------------------
-                            if (elapsedTime1 == 0 && elapsedTime2 != 0) {
+                            if (elapsedTime1 == 0 && elapsedTime2 != 0 && !isRepeating1) {
                                 playCustomSound();
                                 start2();
-
+                                btn_start1.setText("Start");
                                 btn_start2.setText("Stop");
                                 setTime1();
                                 timer1.stop();
                             }
-                            if (elapsedTime2 == 0 && elapsedTime1 != 0 && elapsedTimeHistory1 != 0) {
+                            if (elapsedTime2 == 0 && elapsedTime1 != 0 && (elapsedTimeHistory1 != 0 || elapsedTimeHistory2 != 0) && !isRepeating2) {
                                 playCustomSound();
                                 start1();
-
+                                btn_start2.setText("Start");
                                 btn_start1.setText("Stop");
                                 setTime2();
                                 timer2.stop();
@@ -479,7 +479,7 @@ public class Controller {
         } else {
             isAllRepeating = false;
             btn_repeatAll.setText("Repeat All (Off)");
-            btn_repeatAll.setStyle("-fx-background-color: -fx-default-button");
+            btn_repeatAll.setStyle("");
 
             elapsedTimeHistory1 = 0;
             elapsedTimeHistory2 = 0;
@@ -487,3 +487,10 @@ public class Controller {
     }
 
 }
+
+
+// users should be able to know how many rounds they are doing, and which round is it
+
+// positioning of the reset button
+// looping wouldnt function properly if users start the second timer first
+// should allow users to add label for each timer
