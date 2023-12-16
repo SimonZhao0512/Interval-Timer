@@ -1,7 +1,7 @@
 # Infinite Timer 
 An interval timer for workout / study sessions, perfect for implementing structured intervals of focused activity and designated breaks!
 
-##Run
+## Run
 It's maven project, so run `mvn javafx:run`
 
 #Features
