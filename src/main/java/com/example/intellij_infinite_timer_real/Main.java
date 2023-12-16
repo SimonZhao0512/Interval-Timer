@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 
@@ -16,6 +17,7 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(e -> System.exit(0));
         primaryStage.setScene(new Scene(root, 350, 650));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {

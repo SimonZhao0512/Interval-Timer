@@ -56,7 +56,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btn_repeatAll" layoutX="22.0" layoutY="26.0" mnemonicParsing="false" onAction="#btn_repeatAll_Click" prefHeight="30.0" prefWidth="286.0" text="Repeat All (Off)">
+            <Button fx:id="btn_repeatAll" layoutX="22.0" layoutY="26.0" mnemonicParsing="false" onAction="#btn_repeatAll_Click" prefHeight="30.0" prefWidth="297.0" text="Repeat All (Off)">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -96,6 +96,7 @@
                   <Font size="32.0" />
                </font>
             </Label>
+            <Label fx:id="label_set_number" alignment="CENTER" layoutX="21.0" layoutY="5.0" prefHeight="18.0" prefWidth="297.0" style="visibility: false;" text="Current Set: 0" />
          </children>
       </AnchorPane>
    </top>
@@ -153,12 +154,12 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button layoutX="15.0" layoutY="203.0" mnemonicParsing="false" onAction="#btn_resetALL_Click" prefHeight="30.0" prefWidth="302.0" style="-fx-background-color: orange;" text="Reset All">
+            <Button fx:id="btn_resetAll" layoutX="15.0" layoutY="203.0" mnemonicParsing="false" onAction="#btn_resetALL_Click" prefHeight="30.0" prefWidth="302.0" style="-fx-background-color: orange;" text="Reset All">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="16.0" layoutY="158.0" mnemonicParsing="false" onAction="#btn_resetALL_Click" prefHeight="30.0" prefWidth="302.0" style="-fx-background-color: indianred;" text="Stop All">
+            <Button fx:id="btn_stopAll" layoutX="16.0" layoutY="158.0" mnemonicParsing="false" onAction="#btn_stopAll_Click" prefHeight="30.0" prefWidth="302.0" style="-fx-background-color: indianred;" text="Stop All">
                <font>
                   <Font size="18.0" />
                </font>

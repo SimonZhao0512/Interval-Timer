@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
+import javafx.animation.ScaleTransition;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -26,7 +26,14 @@ public class Controller {
         timer1.setCycleCount(Timeline.INDEFINITE);
         timer2.setCycleCount(Timeline.INDEFINITE);
         monitorRepeatAll();
+        setupButtonAnimation(btn_stopAll);
+        setupButtonAnimation(btn_resetAll);
+
     }
+    static ScaleTransition scaleTransition;
+    int set_number = 0;
+    int start1_frequency_number = 0;
+    int start2_frequency_number = 0;
 
     boolean isAllRepeating = false;
     int elapsedTime1;
@@ -40,6 +47,8 @@ public class Controller {
     String mins_string1 = String.format("%02d", mins1);
     String hours_string1 = String.format("%02d", hours1);
 
+    public Button btn_stopAll = new Button("Stop All");
+    public Button btn_resetAll = new Button("Reset All");
     public Button btn_repeatAll = new Button("Repeat All (Off)");
     public Button btn_start1 = new Button("Start");
     public Button btn_reset1 = new Button("Reset");
@@ -48,6 +57,25 @@ public class Controller {
     public TextField txt_setSec1 = new TextField();
     public Button btn_repeat1 = new Button("Repeat");
     public Label label_time1 = new Label();
+
+    public Label label_set_number = new Label();
+
+    protected static void setupButtonAnimation(Button button) {
+
+        scaleTransition = new ScaleTransition(Duration.millis(100), button);
+        scaleTransition.setFromX(1.0);
+        scaleTransition.setToX(0.8);
+        scaleTransition.setFromY(1.0);
+        scaleTransition.setToY(0.8);
+        scaleTransition.setCycleCount(2);
+        scaleTransition.setAutoReverse(true);
+
+        button.setOnMousePressed(event -> {
+            scaleTransition.playFromStart();
+            // Add additional actions if needed
+        });
+    }
+
 
     Timeline timer1 = new Timeline(
 
@@ -82,9 +110,7 @@ public class Controller {
 
         if (!started1) {
             this.elapsedTimeHistory1 = this.elapsedTime1;
-            started1 = true;
-            btn_start1.setText("Stop");
-            timer1.play();
+            start1();
 
         } else {
             started1 = false;
@@ -110,6 +136,7 @@ public class Controller {
             isRepeating1 = true;
             btn_repeat1.setStyle("-fx-background-color: green;");
 
+
         } else {
             isRepeating1 = false;
             btn_repeat1.setStyle("");
@@ -117,9 +144,11 @@ public class Controller {
     }
 
     public void start1() {
+        start1_frequency_number++;
         timer1.play();
         started1 = true;
         btn_start1.setText("Stop");
+
     }
 
     public void stop1() {
@@ -239,9 +268,7 @@ public class Controller {
 
         if (!started2) {
             this.elapsedTimeHistory2 = this.elapsedTime2;
-            started2 = true;
-            btn_start2.setText("Stop");
-            timer2.play();
+            start2();
 
         } else {
             started2 = false;
@@ -274,8 +301,12 @@ public class Controller {
     }
 
     public void start2() {
+        start2_frequency_number++;
         timer2.play();
+        started2 = true;
         btn_start2.setText("Stop");
+
+
     }
 
     public void stop2() {
@@ -389,6 +420,11 @@ public class Controller {
         }
     }
 
+    public void btn_stopAll_Click(ActionEvent e){
+        stop1();
+        stop2();
+    }
+
     public void btn_resetALL_Click(ActionEvent e) {
         reset1();
         reset2();
@@ -402,6 +438,10 @@ public class Controller {
         txt_setSec2.clear();
         elapsedTime1 = 0;
         elapsedTime2 = 0;
+        set_number = 0;
+        label_set_number.setText("Current Set: 0");
+        start1_frequency_number = 0;
+        start2_frequency_number = 0;
 
         if (isAllRepeating) {
             isAllRepeating = false;
@@ -444,7 +484,10 @@ public class Controller {
                                 setTime2();
                                 timer2.stop();
                             }
+                            if (start1_frequency_number > start2_frequency_number  ){
+                                label_set_number.setText("Current Set: "+ start1_frequency_number);
 
+                            }
                             // -----------------------------------------------------------------
                             // if (stopwatch1.elapsedTime == 0 && stopwatch2.elapsedTime == 0 &&
                             // stopwatch1.elapsedTimeHistory != 0) {
@@ -475,9 +518,11 @@ public class Controller {
             isAllRepeating = true;
             btn_repeatAll.setText("Repeat All (On)");
             btn_repeatAll.setStyle("-fx-background-color: green;");
+            label_set_number.setStyle("visibility: true");
 
         } else {
             isAllRepeating = false;
+            label_set_number.setStyle("visibility: false");
             btn_repeatAll.setText("Repeat All (Off)");
             btn_repeatAll.setStyle("");
 
@@ -489,8 +534,6 @@ public class Controller {
 }
 
 
-// users should be able to know how many rounds they are doing, and which round is it
 
-// positioning of the reset button
-// looping wouldnt function properly if users start the second timer first
+
 // should allow users to add label for each timer

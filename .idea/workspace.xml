@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27c957da-f473-4a53-af77-e4b6afdba047" name="Changes" comment="" />
+    <list default="true" id="27c957da-f473-4a53-af77-e4b6afdba047" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/intellij_infinite_timer_real/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/intellij_infinite_timer_real/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/intellij_infinite_timer_real/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/intellij_infinite_timer_real/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/intellij_infinite_timer_real/TimerUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/intellij_infinite_timer_real/TimerUI.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "translating__to__kotlin",
     "jdk.selected.JAVA_MODULE": "17",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
